@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplication1.Models.Item>
+
+@{
+    ViewBag.Title = "GetItem";
+}
+</br>
+<p>
+    <a href=" @Url.Action("CreateItem","Item")" class="btn btn-default add-new"><i class="fa fa-plus"></i> Create New</a>
+</p>
+</br>
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                Actions
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","Item",new { id = item.ItemId })" class=" btn btn-default edit "><i class="fa fa-pencil"></i> Edit</a> |
+                <a href="@Url.Action("Details","Item",new { id = item.ItemId })" class=" btn btn-default details"><i class="fa fa-info"></i> Details</a>|
+                <a href="@Url.Action("Delete","Item",new { id = item.ItemId })" class=" btn btn-danger"><i class="fa fa-trash"></i> Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

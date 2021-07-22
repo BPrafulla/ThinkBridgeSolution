@@ -1,0 +1,43 @@
+﻿@model WebApplication1.Models.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+
+
+<dl class="dl-horizontal table-heading">
+    <h2 >Item Details</h2>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Description)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Description)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Price)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+
+</dl>
+    </div>
+    <p>
+        <a href="@Url.Action("Edit","Item",new { id = Model.ItemId })" class=" btn btn-default edit "><i class="fa fa-pencil"></i> Edit</a> |
+        <a href=" @Url.Action("GetItem","Item")" class="btn btn-default add-new"><i class="fa fa-chevron-circle-left"></i> Back to List</a>
+    </p>
