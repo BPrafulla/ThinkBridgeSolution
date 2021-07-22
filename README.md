@@ -10,5 +10,5 @@ You can do following Operations with this app:
 
 Follow Below steps :
 Steps:
-1]Create table in SQL server with "itemsDB" name having columns are: Id(primary key, AutoIncrement) ,Name ,Descreption,Price.
-2]Run the solution in VS.
+1]Create table in SQL server using "ShopBridge_Items_Table" Script given in code.
+2]To run Application refer word document given with code.
