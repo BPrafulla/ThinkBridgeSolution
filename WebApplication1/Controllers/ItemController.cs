@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
                 db.Items.Add(item);
                 await db.SaveChangesAsync();
                 TempData["SuccessMessage"] = "Saved Successfully";
-                return RedirectToAction("GetItem");
+                return RedirectToAction("GetItem", "Item");
             }
             else
             {
@@ -81,7 +81,7 @@ namespace WebApplication1.Controllers
             {
                 db.Entry(item).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                TempData["SuccessMessage"] = "Saved Successfully";
+                TempData["EditSuccessMessage"] = "Item Edited Successfully";
                 return RedirectToAction("GetItem");
             }
             return View(item);
@@ -95,7 +95,7 @@ namespace WebApplication1.Controllers
             }
 
             Item item = await db.Items.FindAsync(id);
-
+           
             if (item == null)
             {
                 return HttpNotFound();
@@ -112,7 +112,7 @@ namespace WebApplication1.Controllers
             Item item = await db.Items.FindAsync(id);
             db.Items.Remove(item);
             await db.SaveChangesAsync();
-            TempData["SuccessMessage"] = "Saved Successfully";
+            TempData["DeleteSuccessMessage"] = "Item Deleted Successfully";
             return RedirectToAction("GetItem");
            
         }

@@ -5,7 +5,7 @@
 }
 </br>
 <p>
-    <a href=" @Url.Action("CreateItem","Item")" class="btn btn-default add-new"><i class="fa fa-plus"></i> Create New</a>
+    <a href=" @Url.Action("CreateItem","Item")" class="btn btn-default add-new"><i class="fa fa-plus"></i> ADD ITEM</a>
 </p>
 </br>
 <table class="table table-striped">
@@ -46,4 +46,40 @@
         </tr>
     }
 
+
 </table>
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.SuccessMessage");
+            };
+    </script>
+
+}
+@if (ViewBag.DeleteSuccessMessage != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.DeleteSuccessMessage");
+            };
+    </script>
+
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["SuccessMessage"]</p>
+}
+
+@if (TempData["DeleteSuccessMessage"] != null)
+{
+    <p class="alert alert-danger" id="DeleteSuccessMessage">@TempData["DeleteSuccessMessage"]</p>
+}
+@if (TempData["EditSuccessMessage"] != null)
+{
+    <p class="alert alert-warning" id="DeleteSuccessMessage">@TempData["EditSuccessMessage"]</p>
+}
